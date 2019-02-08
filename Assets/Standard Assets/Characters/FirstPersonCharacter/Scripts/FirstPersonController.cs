@@ -163,6 +163,8 @@ namespace UnityStandardAssets.Characters.FirstPerson
                 m_CharacterController.height = m_CharacterController.height / 2f;
                 m_CharacterController.center = m_CharacterController.center / 2f;
                 m_Crouching = true;
+                // камера следует за капсулой
+                //m_Camera.transform.position -= new Vector3(0, m_CharacterController.height / 2f);
             }
             else
             {
@@ -176,6 +178,24 @@ namespace UnityStandardAssets.Characters.FirstPerson
                 m_CharacterController.height = m_CapsuleHeight;
                 m_CharacterController.center = m_CapsuleCenter;
                 m_Crouching = false;
+                // камера следует за капсулой
+                //m_Camera.transform.position += new Vector3(0, m_CharacterController.height / 2f);
+            }
+
+            m_Camera.transform.position = new Vector3(m_Camera.transform.position.x, m_CharacterController.transform.position.y + m_CharacterController.height, m_Camera.transform.position.z);
+        }
+
+        void PreventStandingInLowHeadroom()
+        {
+            // prevent standing up in crouch-only zones
+            if (!m_Crouching)
+            {
+                Ray crouchRay = new Ray(m_Rigidbody.position + Vector3.up * m_CharacterController.radius * k_Half, Vector3.up);
+                float crouchRayLength = m_CapsuleHeight - m_CharacterController.radius * k_Half;
+                if (Physics.SphereCast(crouchRay, m_CharacterController.radius * k_Half, crouchRayLength, Physics.AllLayers, QueryTriggerInteraction.Ignore))
+                {
+                    m_Crouching = true;
+                }
             }
         }
 
@@ -239,10 +259,12 @@ namespace UnityStandardAssets.Characters.FirstPerson
             m_ForwardAmount = move.z;
 
             bool crouch = Input.GetKey(KeyCode.C);
-            m_Crouching = crouch;
             ScaleCapsuleForCrouching(crouch);
+            m_Crouching = crouch;
             m_IsGrounded = m_CharacterController.isGrounded; // моё
             //m_TurnAmount = Mathf.Atan2(m_MoveDir.x, m_MoveDir.z);
+
+            PreventStandingInLowHeadroom();
 
             UpdateAnimator(move*Time.fixedDeltaTime);
         }
