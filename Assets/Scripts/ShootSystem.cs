@@ -6,6 +6,8 @@ using UnityEngine;
 public class ShootSystem : MonoBehaviour {
 
     private AudioSource m_AudioSource;
+    private Inventory inventory;
+    //var weapon; // = Inventory.CurrentWeapon;
 
 	// Use this for initialization
 	void Start () {
