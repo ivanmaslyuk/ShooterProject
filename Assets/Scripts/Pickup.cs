@@ -12,8 +12,9 @@ public enum PickupName
 [RequireComponent(typeof(Rigidbody))]
 public class Pickup : MonoBehaviour {
 
-    [SerializeField] int RemainingAmmo;
-    [SerializeField] PickupName Name;
+    [SerializeField] public int RemainingAmmo;
+    [SerializeField] public PickupName Name;
+    [SerializeField] public AudioClip sound;
 
 	// Use this for initialization
 	void Start () {

@@ -2,11 +2,14 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+[RequireComponent(typeof(AudioSource))]
 public class ShootSystem : MonoBehaviour {
+
+    private AudioSource m_AudioSource;
 
 	// Use this for initialization
 	void Start () {
-		
+        m_AudioSource = gameObject.GetComponent<AudioSource>();
 	}
 	
 	// Update is called once per frame
@@ -18,5 +21,7 @@ public class ShootSystem : MonoBehaviour {
     {
         // Стандартная реализация.
         Destroy(pickup.gameObject);
+        m_AudioSource.clip = pickup.sound;
+        m_AudioSource.Play();
     }
 }
