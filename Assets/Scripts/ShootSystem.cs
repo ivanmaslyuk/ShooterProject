@@ -8,6 +8,8 @@ public class ShootSystem : MonoBehaviour {
     private AudioSource m_AudioSource;
     private Inventory inventory;
     //var weapon; // = Inventory.CurrentWeapon;
+    private bool auto;
+
 
 	// Use this for initialization
 	void Start () {
