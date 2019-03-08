@@ -171,13 +171,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62ce15b17558bce4ea3ae683c2a1fdf2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  CameraOffset: {x: 0.05598824, y: -0.1739919, z: 0.1519544}
-  Rotation: {x: 0, y: 90, z: 0}
-  Name: 2
   ClipCapacity: 5
   StashCapacity: 15
   AmmoLeftInClip: 5
   AmmoLeftInStash: 5
+  CameraOffset: {x: 0.05598824, y: -0.1739919, z: 0.1519544}
+  Rotation: {x: 0, y: 90, z: 0}
+  Name: 2
+  damage: 20
+  range: 500
+  timeout: 0.1
+  reloadTime: 1
 --- !u!114 &114523436303941754
 MonoBehaviour:
   m_ObjectHideFlags: 1

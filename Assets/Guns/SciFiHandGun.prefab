@@ -473,10 +473,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62ce15b17558bce4ea3ae683c2a1fdf2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  CameraOffset: {x: 0.101, y: -0.17, z: 0.3489998}
-  Rotation: {x: 0, y: 0, z: 0}
-  Name: 1
   ClipCapacity: 7
   StashCapacity: 21
   AmmoLeftInClip: 7
   AmmoLeftInStash: 7
+  CameraOffset: {x: 0.101, y: -0.17, z: 0.3489998}
+  Rotation: {x: 0, y: 0, z: 0}
+  Name: 1
+  damage: 20
+  range: 500
+  timeout: 0.1
+  reloadTime: 1

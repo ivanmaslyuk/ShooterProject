@@ -182,13 +182,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62ce15b17558bce4ea3ae683c2a1fdf2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  CameraOffset: {x: 0.15, y: -0.263, z: 0.15}
-  Rotation: {x: 0, y: 0, z: 0}
-  Name: 0
   ClipCapacity: 10
   StashCapacity: 50
   AmmoLeftInClip: 10
   AmmoLeftInStash: 10
+  CameraOffset: {x: 0.15, y: -0.263, z: 0.15}
+  Rotation: {x: 0, y: 0, z: 0}
+  Name: 0
+  damage: 10
+  range: 500
+  timeout: 0.1
+  reloadTime: 1
 --- !u!114 &114428595177191738
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -200,6 +204,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c3e399cc8bb94a4f825eb399a3561ee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Type: 1
+  Type: 0
   Sound: {fileID: 8300000, guid: 5897aeed9b676024fbb8c694b421a861, type: 3}
   isEnabled: 1

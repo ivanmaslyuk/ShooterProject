@@ -155,6 +155,7 @@ public class Inventory : MonoBehaviour {
                 if (w.AmmoLeftInStash == w.StashCapacity)
                     playSound = false;
 
+                //BUG IS HERE 
                 int bulletCount = w.AmmoLeftInStash;
                 bulletCount += pickupAsWeapon.RemainingAmmo;
                 if (bulletCount > w.StashCapacity)
