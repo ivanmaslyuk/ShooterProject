@@ -21,7 +21,16 @@ public class ShootSystem : MonoBehaviour {
         {
             switchWeapon = true;
         }
-	}
+        if (Input.GetMouseButtonDown(0) & inventory.ActiveWeapon.canShoot & inventory.ActiveWeapon.AmmoLeftInClip > 0)
+        {
+            inventory.ActiveWeapon.Shoot();
+        }
+        if (Input.GetKeyDown(KeyCode.R) & inventory.ActiveWeapon.canShoot && inventory.ActiveWeapon.AmmoLeftInClip != inventory.ActiveWeapon.AmmoLeftInStash && inventory.ActiveWeapon.AmmoLeftInClip != inventory.ActiveWeapon.ClipCapacity)
+        {
+            inventory.ActiveWeapon.canShoot = false;
+            StartCoroutine(inventory.ActiveWeapon.CoroutineReload());
+        }
+    }
 
     void FixedUpdate()
     {

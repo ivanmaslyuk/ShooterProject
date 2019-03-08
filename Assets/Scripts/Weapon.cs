@@ -55,9 +55,9 @@ public class Weapon : MonoBehaviour {
     /// </summary>
     public float reloadTime = 1.0f;
 
-    private bool canShoot = true; // для отключения стрельбы во время перезаряда(в дальнейшем и когда только достал оружие и идет анимация(наверно))
+    public bool canShoot = true; // для отключения стрельбы во время перезаряда(в дальнейшем и когда только достал оружие и идет анимация(наверно))
 
-    private void Shoot()
+    public void Shoot()
     {
         AmmoLeftInClip--;
 
@@ -137,18 +137,18 @@ public class Weapon : MonoBehaviour {
         canShoot = true;
     }
 
-    void Update() {
-        if (Input.GetMouseButtonDown(0) & canShoot & AmmoLeftInClip > 0)
-        {          
-             Shoot();
-        }
-        if (Input.GetKeyDown(KeyCode.R) & canShoot  && AmmoLeftInClip != AmmoLeftInStash && AmmoLeftInClip != ClipCapacity )
-        {
-            canShoot = false;
-            StartCoroutine(CoroutineReload());
-        }
+    //void Update() {
+    //    if (Input.GetMouseButtonDown(0) & canShoot & AmmoLeftInClip > 0)
+    //    {          
+    //         Shoot();
+    //    }
+    //    if (Input.GetKeyDown(KeyCode.R) & canShoot  && AmmoLeftInClip != AmmoLeftInStash && AmmoLeftInClip != ClipCapacity )
+    //    {
+    //        canShoot = false;
+    //        StartCoroutine(CoroutineReload());
+    //    }
 
-    }
+    //}
     
 
     public int RemainingAmmo
